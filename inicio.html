@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Jugadores Destacados de Frontón</title>
+  <style>
+    body {
+      font-family: Verdana, Geneva, sans-serif;
+      background-color: #e0f7fa;
+      color: #004d40;
+      margin: 40px;
+    }
+
+    .menu-navegacion {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .nav-button {
+      font-size: 1em;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 6px;
+      border: none;
+      background-color: #00796b;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    .nav-button:hover {
+      background-color: #004d40;
+    }
+
+    .imagen-con-efecto {
+      width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .imagen-con-efecto:hover {
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      margin-top: 60px;
+      background-color: #004d40;
+      color: #b2dfdb;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9em;
+      border-radius: 8px;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.15);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #004d40;
+    }
+
+    thead {
+      background-color: #00796b;
+      color: white;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #b2dfdb;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #e0f2f1;
+    }
+
+    /* Estilo para imagen destacada */
+    .imagen-destacada {
+      width: 80%;
+      max-width: 700px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .imagen-destacada:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+
+<body id="top">
+
+ <!-- Barra de navegación -->
+<div class="menu-navegacion">
+  <button onclick="location.href='inicio.html'" class="nav-button">Inicio</button>
+  <button onclick="location.href='historia.html'" class="nav-button">Historia</button>
+  <button onclick="location.href='importancia.html'" class="nav-button">Importancia</button>
+  <button onclick="location.href='noticias.html'" class="nav-button">Noticias</button>
+  <button onclick="location.href='jugadores.html'" class="nav-button">Jugadores</button>
+  <button onclick="location.href='productos.html'" class="nav-button">Productos</button>
+  <button onclick="window.open('https://es.wikipedia.org/wiki/Front%C3%B3n_(deporte)', '_blank')" class="nav-button">Wikipedia</button>
+</div>
+
+  <h1 style="text-align: center; font-size: 3em; margin-bottom: 0.2em; display:flex; align-items:center; justify-content:center; gap:15px;">
+    <img src="IMAGENES/logo.png" alt="Logo Frontón" style="height: 60px;">
+    Jugadores Destacados de Frontón
+  </h1>
+
+  <marquee behavior="alternate" style="font-size: 1em; color: #339966; margin-bottom: 30px;">
+    “El éxito no es casualidad, es esfuerzo y pasión en cada golpe.”
+  </marquee>
+
+  <!-- 🔥 IMAGEN DESTACADA FUNCIONANDO -->
+  <div style="text-align:center; margin: 50px 0;">
+    <img src="IMAGENES/anuncio.jpg"
+         alt="Imagen destacada del frontón"
+         class="imagen-destacada">
+  </div>
+
+  <div style="max-width: 800px; margin: auto; font-size: 1.1em; line-height: 1.6;">
+    <p>
+      A lo largo de la historia del frontón, varios jugadores se han destacado...
+    </p>
+
+    <table id="tabla-jugadores">
+      <thead>
+        <tr><th>Nombre</th><th>Características</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Julio Imaz</td><td>Considerado uno de los mejores pelotaris vascos.</td></tr>
+        <tr><td>Patxi Ruiz</td><td>Campeón en múltiples modalidades.</td></tr>
+        <tr><td>María López</td><td>Ganadora de campeonatos internacionales.</td></tr>
+        <tr><td>Carlos Fernández</td><td>Técnica y velocidad impecables.</td></tr>
+        <tr><td>Ana Martínez</td><td>Embajadora del frontón femenino.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="text-align: center; margin-top: 40px;">
+    <img src="IMAGENES/descarga.jpg" alt="Jugadores de frontón" class="imagen-con-efecto">
+  </div>
+
+  <footer>
+    &copy; 2025 Frontón Deportivo |
+    <a href="contacto.html" style="color: #b2dfdb; text-decoration: underline;">Contacto</a> |
+    <a href="#top" style="color: #b2dfdb; text-decoration: underline;">Volver arriba</a>
+  </footer>
+
+</body>
+</html>
