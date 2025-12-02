@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Noticias del Frontón - Carrusel Suave</title>
+  <style>
+    body {
+      font-family: Verdana, Geneva, sans-serif;
+      margin: 40px;
+      color: #004d40;
+      background-color: #e0f7fa;
+    }
+
+    .nav-buttons {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .nav-buttons button {
+      font-size: 1em;
+      margin: 0 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 6px;
+      border: none;
+      background-color: #00796b;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    .nav-buttons button:first-child {
+      background-color: #004d40;
+    }
+    .nav-buttons button:hover {
+      background-color: #004d40;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+
+    .contenido {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    .carrusel {
+      width: 320px;
+      height: 200px;
+      overflow: hidden;
+      margin: 40px auto 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .carrusel-inner {
+      display: flex;
+      width: calc(320px * 8);
+      animation: scroll-left 20s linear infinite;
+    }
+
+    .carrusel-inner img {
+      width: 320px;
+      height: 200px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-320px * 4)); }
+    }
+
+    footer {
+      margin-top: 60px;
+      background-color: #004d40;
+      color: #b2dfdb;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9em;
+      border-radius: 8px;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.15);
+    }
+
+    footer a {
+      color: #b2dfdb;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-buttons">
+    <button onclick="location.href='inicio.html'">Inicio</button>
+    <button onclick="location.href='historia.html'">Historia</button>
+    <button onclick="location.href='importancia.html'">Importancia</button>
+    <button onclick="location.href='noticias.html'">Noticias</button>
+    <button onclick="location.href='jugadores.html'">Jugadores</button>
+  </div>
+
+  <h1>Noticias del Frontón</h1>
+
+  <div class="contenido">
+
+    <?php
+      include("conexion.php");
+
+      $sql = "SELECT titulo, descripcion FROM noticias";
+      $resultado = mysqli_query($conn, $sql);
+    ?>
+
+    <p>Mantente al día con las últimas noticias y eventos relacionados con el frontón:</p>
+
+    <h2 style="color: #00796b;">Noticias recientes:</h2>
+
+    <ul>
+      <?php
+        if (mysqli_num_rows($resultado) > 0) {
+          while($fila = mysqli_fetch_assoc($resultado)) {
+            echo "<li><strong>" . htmlspecialchars($fila['titulo']) . ":</strong> " . htmlspecialchars($fila['descripcion']) . "</li>";
+          }
+        } else {
+          echo "<li>No hay noticias por el momento.</li>";
+        }
+      ?>
+    </ul>
+
+    <p>Para más información, sigue nuestras redes sociales y páginas oficiales.</p>
+  </div>
+
+  <div class="carrusel">
+    <div class="carrusel-inner">
+      <img src="IMAGENES/ema.jpg" />
+      <img src="IMAGENES/descarga.jpg" />
+      <img src="IMAGENES/otra_imagen.jpg" />
+      <img src="IMAGENES/mas_imagen.jpg" />
+      <img src="IMAGENES/ema.jpg" />
+      <img src="IMAGENES/descarga.jpg" />
+      <img src="IMAGENES/otra_imagen.jpg" />
+      <img src="IMAGENES/mas_imagen.jpg" />
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Frontón Deportivo. Todos los derechos reservados. |
+    <a href="contacto.php">Contacto</a>
+  </footer>
+
+</body>
+</html>

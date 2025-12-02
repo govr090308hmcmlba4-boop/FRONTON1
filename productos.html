@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos – Frontón</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            background: #e0f7fa;
+            margin: 0;
+            padding: 20px;
+            color: #004d40;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #00796b;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #004d40;
+        }
+
+        .productos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h3 {
+            margin: 0 0 10px;
+            color: #004d40;
+        }
+
+        .card-content p {
+            color: #333;
+            font-size: 15px;
+        }
+
+        .regresar-btn {
+            display: block;
+            width: 200px;
+            margin: 40px auto 20px auto;
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 1em;
+            color: white;
+            background-color: #00796b;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            text-decoration: none;
+        }
+
+        .regresar-btn:hover {
+            background-color: #004d40;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #004d40;
+            color: #b2dfdb;
+            border-radius: 8px;
+        }
+
+        footer a {
+            color: #b2dfdb;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Productos de Frontón</h1>
+    <p>Encuentra todo lo que necesitas para practicar frontón con estilo y seguridad.</p>
+</header>
+
+<div class="productos-container">
+
+    <!-- Tarjeta 1 -->
+    <div class="card">
+        <img src="IMAGENES/pelota.jpg" alt="Pelota de Frontón">
+        <div class="card-content">
+            <h3>Pelota Profesional de Frontón</h3>
+            <p>Pelota aprobada para torneos oficiales, fabricada con materiales de alta durabilidad y excelente rebote.</p>
+        </div>
+    </div>
+
+    <!-- Tarjeta 2 -->
+    <div class="card">
+        <img src="IMAGENES/guantes.jpg" alt="Guantes de Frontón">
+        <div class="card-content">
+            <h3>Guantes Antideslizantes</h3>
+            <p>Guantes diseñados para mejorar el agarre y la protección durante el juego. Disponibles en varias tallas.</p>
+        </div>
+    </div>
+
+    <!-- Tarjeta 3 -->
+    <div class="card">
+        <img src="IMAGENES/protector.jpg" alt="Protector de muñeca">
+        <div class="card-content">
+            <h3>Protector de Muñeca</h3>
+            <p>Evita lesiones con este protector acolchonado, ideal para entrenamientos y competencias intensas.</p>
+        </div>
+    </div>
+
+    <!-- Tarjeta 4 -->
+    <div class="card">
+        <img src="IMAGENES/gorra.jpg" alt="Gorra deportiva">
+        <div class="card-content">
+            <h3>Gorra Deportiva</h3>
+            <p>Gorra ligera y transpirable diseñada para jugadores de frontón. Protege del sol y absorbe el sudor.</p>
+        </div>
+    </div>
+
+    <!-- Tarjeta 5 -->
+    <div class="card">
+        <img src="IMAGENES/playera.jpg" alt="Playera deportiva">
+        <div class="card-content">
+            <h3>Playera de Entrenamiento</h3>
+            <p>Playera cómoda y resistente, confeccionada en tela transpirable ideal para largas sesiones de juego.</p>
+        </div>
+    </div>
+
+    <!-- Tarjeta 6 -->
+    <div class="card">
+        <img src="IMAGENES/zapatos.jpg" alt="Zapatos deportivos">
+        <div class="card-content">
+            <h3>Zapatos Especiales de Frontón</h3>
+            <p>Zapatos con suela antideslizante, diseñados para mayor estabilidad y comodidad en la cancha.</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Botón de regresar -->
+<a href="inicio.html" class="regresar-btn">Regresar al Inicio</a>
+
+<footer>
+    &copy; 2025 Frontón Deportivo. Todos los derechos reservados. | <a href="contacto.html">Contacto</a>
+</footer>
+
+</body>
+</html>
