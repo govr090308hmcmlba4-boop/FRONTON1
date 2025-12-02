@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio de Sesión - Frontón</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background-color: #b2dfdb;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      text-align: center;
+      width: 350px;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #004d40;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #004d40;
+      font-size: 1em;
+    }
+
+    .btn {
+      width: 95%;
+      padding: 12px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 1em;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #004d40;
+    }
+
+    #mensaje {
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    .btn-agregar {
+      background-color: #26a69a;
+    }
+
+    .btn-agregar:hover {
+      background-color: #00796b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Iniciar Sesión</h2>
+
+    <input type="text" id="usuario" placeholder="Usuario"><br>
+    <input type="password" id="contrasena" placeholder="Contraseña"><br>
+
+    <button class="btn" onclick="validarLogin()">Entrar</button>
+    <button class="btn btn-agregar" onclick="agregarUsuario()">Agregar Usuario</button>
+
+    <p id="mensaje"></p>
+  </div>
+
+  <script>
+    // Usuarios predeterminados
+    let usuariosValidos = [
+      { usuario: "roberto", contrasena: "12345" },
+      { usuario: "angel", contrasena: "3456" },
+      { usuario: "ema", contrasena: "12345" },
+      { usuario: "omar", contrasena: "76243" },
+      { usuario: "carlos", contrasena: "qwerty" }
+    ];
+
+    // Cargar usuarios del localStorage si existen
+    if (localStorage.getItem("usuariosFronton")) {
+      usuariosValidos = JSON.parse(localStorage.getItem("usuariosFronton"));
+    }
+
+    function validarLogin() {
+      const user = document.getElementById("usuario").value.trim();
+      const pass = document.getElementById("contrasena").value.trim();
+      const mensaje = document.getElementById("mensaje");
+
+      if (!user || !pass) {
+        mensaje.style.color = "red";
+        mensaje.innerText = "Por favor, complete todos los campos";
+        return;
+      }
+
+      const valido = usuariosValidos.some(
+        u => u.usuario.toLowerCase() === user.toLowerCase() && u.contrasena === pass
+      );
+
+      if (valido) {
+        mensaje.style.color = "green";
+        mensaje.innerText = "Acceso concedido. Redirigiendo...";
+        setTimeout(() => {
+          window.location.href = "inicio.html"; // Redirige a tu página de inicio
+        }, 1000);
+      } else {
+        mensaje.style.color = "red";
+        mensaje.innerText = "Usuario o contraseña incorrectos";
+      }
+    }
+
+    function agregarUsuario() {
+      const user = prompt("Ingrese el nombre de usuario:").trim();
+      if (!user) return alert("El usuario no puede estar vacío");
+
+      const pass = prompt("Ingrese la contraseña:").trim();
+      if (!pass) return alert("La contraseña no puede estar vacía");
+
+      // Verificar si ya existe
+      const existe = usuariosValidos.some(u => u.usuario.toLowerCase() === user.toLowerCase());
+      if (existe) {
+        alert("El usuario ya existe");
+        return;
+      }
+
+      usuariosValidos.push({ usuario: user, contrasena: pass });
+      localStorage.setItem("usuariosFronton", JSON.stringify(usuariosValidos));
+      alert(`Usuario "${user}" agregado correctamente`);
+    }
+  </script>
+
+</body>
+</html>
+
